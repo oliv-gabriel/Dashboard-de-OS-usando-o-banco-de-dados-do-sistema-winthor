@@ -1,0 +1,15 @@
+node_modules
+.next
+.git
+.gitignore
+.env
+*.md
+*.sql
+Dockerfile
+docker-compose.yml
+.agents
+.gemini
+.cursor
+.copilot
+AGENTS.md
+CLAUDE.md

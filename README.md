@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dashboard de Separação
 
-## Getting Started
+Painel de acompanhamento em tempo real das Ordens de Serviço de separação, com dados vindos do banco Oracle (Winthor).
 
-First, run the development server:
+## Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 📊 Painel com lista de OS pendentes, % separação e % conferência
+- 📈 Gráficos de OS concluídas por dia e por funcionário
+- 🔄 Atualização automática configurável (10s, 30s, 1min, 5min)
+- 🖥️ Modo tela cheia para monitores do setor
+- 🔍 Filtros por filial e data
+
+## Pré-requisitos
+
+- [Node.js](https://nodejs.org/) 20+
+- Acesso ao banco Oracle (Winthor)
+
+## Configuração
+
+Crie um arquivo `.env` na raiz do projeto (use o `.env.example` como modelo):
+
+```env
+DB_USER=seu_usuario
+DB_PASSWORD=sua_senha
+DB_CONNECTION_STRING=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=seu_ip)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=seu_servico)))
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Opção 1 — Rodar com Node.js (desenvolvimento)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Instalar dependências
+npm install
 
-## Learn More
+# Iniciar em modo desenvolvimento
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Acesse: [http://localhost:3000](http://localhost:3000)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Opção 2 — Rodar com Docker (produção)
 
-## Deploy on Vercel
+```bash
+# Subir o container
+docker compose up -d
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Ver os logs
+docker compose logs -f
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Parar
+docker compose down
+```
+
+Acesse: [http://localhost:3000](http://localhost:3000)
+
+> O Docker lê automaticamente o arquivo `.env` da raiz do projeto.
+
+---
+
+## Tecnologias
+
+- [Next.js](https://nextjs.org/) 16
+- [React](https://react.dev/) 19
+- [OracleDB](https://www.npmjs.com/package/oracledb) (Thin mode)
+- [Recharts](https://recharts.org/) (gráficos)
+- [Lucide React](https://lucide.dev/) (ícones)
