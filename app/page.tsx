@@ -303,7 +303,7 @@ export default function Dashboard() {
           <div className={styles.statValue}>{processedData.length}</div>
         </div>
         <div className={styles.statCard + " glass"}>
-          <div className={styles.statLabel}>OS concluídas hoje (100%)</div>
+          <div className={styles.statLabel}>OS concluídas hoje</div>
           <div className={styles.statValue}>{osFeitasHoje}</div>
         </div>
         <div className={styles.statCard + " glass"}>

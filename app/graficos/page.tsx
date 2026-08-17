@@ -151,7 +151,7 @@ export default function Graficos() {
           <Link href="/" className={styles.linkButton} title="Voltar ao painel">
             <ArrowLeft size={20} />
           </Link>
-          <h1 className={styles.title}>Desempenho de Separação (OS 100%)</h1>
+          <h1 className={styles.title}>Desempenho de Separação</h1>
         </div>
 
         <div className={styles.controls}>
